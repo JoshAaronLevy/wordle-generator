@@ -56,13 +56,19 @@ export class AppComponent {
   }
 
   addAttempt() {
+    if (this.attempts.length >= 6) {
+      return;
+    }
+
     const letters: LetterState[] = [];
+
     for (let i = 0; i < 5; i++) {
       letters.push({
         letter: this.wordForm.get(`letter${i}`)?.value,
         state: this.wordForm.get(`state${i}`)?.value
       });
     }
+
     this.attempts.push({ letters });
     console.log('attempts: ', this.attempts);
     this.updateSuggestions();

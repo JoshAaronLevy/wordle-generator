@@ -1,16 +1,26 @@
 .container
-  max-width: 1200px
+  max-width: 1000px
   margin: 2rem auto
   padding: 0 1rem
 
 mat-card
   margin-bottom: 1rem
 
+.mat-mdc-card-header
+  justify-content: center
+
+.word-form
+  display: flex
+  flex-direction: column
+  align-items: center
+  gap: 1rem
+
 .letter-row
   display: flex
   flex-direction: row
+  justify-content: center
   gap: 1rem
-  margin-bottom: 1rem
+  margin: 1rem 0rem
 
 .letter-input
   display: flex
@@ -62,5 +72,41 @@ mat-card
 mat-button-toggle-group
   margin-bottom: 1rem
 
-// .mat-button-toggle-checked .mat-button-toggle-button:has(.mat-button-toggle-checkbox-wrapper)
-//   padding-left: 20px !important
+.attempts-card
+  margin-top: 2rem
+
+.attempts-container
+  display: flex
+  flex-direction: column
+  gap: 0.5rem
+  align-items: center
+
+.attempt-row
+  display: flex
+  gap: 0.5rem
+
+.attempt-letter
+  width: 3rem
+  height: 3rem
+  display: flex
+  align-items: center
+  justify-content: center
+  border: 2px solid #d3d6da
+  font-size: 1.5rem
+  font-weight: bold
+  text-transform: uppercase
+
+  &.correct
+    background-color: #6aaa64
+    color: white
+    border-color: #6aaa64
+
+  &.present
+    background-color: #c9b458
+    color: white
+    border-color: #c9b458
+
+  &.absent
+    background-color: #787c7e
+    color: white
+    border-color: #787c7e
