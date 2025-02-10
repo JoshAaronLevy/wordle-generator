@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   standalone: true,
   imports: [CommonModule, MatCardModule],
   templateUrl: './word-suggestions.component.html',
-  styleUrls: ['./word-suggestions.component.sass']
+  styleUrls: ['./word-suggestions.component.scss']
 })
 export class WordSuggestionsComponent {
   suggestions$: Observable<string[]>;

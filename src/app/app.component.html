@@ -4,66 +4,10 @@
 
 <div class="main-container">
   <div class="board-container">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>Enter Your Attempt</mat-card-title>
-      </mat-card-header>
-
-      <mat-card-content>
-        <form [formGroup]="wordForm" (ngSubmit)="addAttempt()" class="word-form">
-          <div class="letter-row">
-            <div class="letter-input" *ngFor="let i of [0,1,2,3,4]">
-              <mat-form-field>
-                <input matInput maxlength="1" [formControlName]="'letter' + i"
-                  (input)="$any($event.target).value = $any($event.target).value.toUpperCase()">
-              </mat-form-field>
-
-              <mat-button-toggle-group [formControlName]="'state' + i">
-                <mat-button-toggle value="absent" class="toggle-gray"></mat-button-toggle>
-                <mat-button-toggle value="present" class="toggle-yellow"></mat-button-toggle>
-                <mat-button-toggle value="correct" class="toggle-green"></mat-button-toggle>
-              </mat-button-toggle-group>
-            </div>
-          </div>
-
-          <button mat-raised-button color="primary" type="submit" [disabled]="!isFormValid">
-            Add Attempt
-          </button>
-        </form>
-      </mat-card-content>
-    </mat-card>
-
-    <mat-card *ngIf="attempts.length > 0" class="attempts-card">
-      <mat-card-header>
-        <mat-card-title>Your Attempts ({{attempts.length}}/6)</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <div class="attempts-container">
-          <div class="attempt-row" *ngFor="let attempt of attempts">
-            <div class="attempt-letter" *ngFor="let letter of attempt.letters" [ngClass]="letter.state">
-              {{letter.letter}}
-            </div>
-          </div>
-        </div>
-      </mat-card-content>
-    </mat-card>
+    <app-attempt-input></app-attempt-input>
+    <app-attempts-display></app-attempts-display>
   </div>
-
   <div class="suggestions-container">
-    <mat-card class="suggestions-card">
-      <mat-card-header>
-        <mat-card-title>Possible Words</mat-card-title>
-        <mat-card-subtitle *ngIf="suggestions.length">
-          {{suggestions.length}} words found
-        </mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <div class="suggestions-list">
-          <div *ngFor="let word of suggestions" class="suggestion-item">
-            {{word}}
-          </div>
-        </div>
-      </mat-card-content>
-    </mat-card>
+    <app-word-suggestions></app-word-suggestions>
   </div>
 </div>

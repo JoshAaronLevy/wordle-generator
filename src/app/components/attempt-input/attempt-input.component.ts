@@ -19,7 +19,7 @@ import { WordleService, LetterState } from '../../services/wordle.service';
     MatButtonToggleModule
   ],
   templateUrl: `./attempt-input.component.html`,
-  styleUrls: ['./attempt-input.component.sass']
+  styleUrls: ['./attempt-input.component.scss']
 })
 export class AttemptInputComponent {
   wordForm: FormGroup;

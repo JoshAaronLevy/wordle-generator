@@ -1,0 +1,59 @@
+.suggestions-card {
+  position: sticky;
+  top: 1rem;
+  max-height: calc(100vh - 120px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+
+  .dark-mode & {
+    background: rgba(48, 48, 48, 0.8);
+  }
+
+  .mat-mdc-card-content {
+    overflow-y: auto;
+    flex: 1;
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+
+      .dark-mode & {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+}
+
+.suggestions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.suggestion-item {
+  padding: 0.75rem;
+  text-transform: uppercase;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  animation: fadeIn 0.3s ease-in-out;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: translateX(4px);
+
+    .dark-mode & {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+}

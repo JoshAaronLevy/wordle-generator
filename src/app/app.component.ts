@@ -5,6 +5,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { AttemptInputComponent } from './components/attempt-input/attempt-input.component';
 import { AttemptsDisplayComponent } from './components/attempts-display/attempts-display.component';
 import { WordSuggestionsComponent } from './components/word-suggestions/word-suggestions.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-root',
@@ -14,23 +15,17 @@ import { WordSuggestionsComponent } from './components/word-suggestions/word-sug
     MatToolbarModule,
     AttemptInputComponent,
     AttemptsDisplayComponent,
-    WordSuggestionsComponent
+    WordSuggestionsComponent,
+    MatSlideToggleModule
   ],
-  template: `
-    <mat-toolbar color="primary">
-      <span>Wordle Generator</span>
-    </mat-toolbar>
-
-    <div class="main-container">
-      <div class="board-container">
-        <app-attempt-input></app-attempt-input>
-        <app-attempts-display></app-attempts-display>
-      </div>
-      <div class="suggestions-container">
-        <app-word-suggestions></app-word-suggestions>
-      </div>
-    </div>
-  `,
-  styleUrls: ['./app.component.sass']
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent { }
+export class AppComponent {
+  isDarkMode = false;
+
+  toggleDarkMode() {
+    this.isDarkMode = !this.isDarkMode;
+    document.body.classList.toggle('dark-mode');
+  }
+}

@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   standalone: true,
   imports: [CommonModule, MatCardModule],
   templateUrl: './attempts-display.component.html',
-  styleUrls: ['./attempts-display.component.sass']
+  styleUrls: ['./attempts-display.component.scss']
 })
 export class AttemptsDisplayComponent {
   attempts$: Observable<WordAttempt[]>;
