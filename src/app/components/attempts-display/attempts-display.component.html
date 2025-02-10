@@ -1,0 +1,14 @@
+<mat-card *ngIf="attempts$ | async as attempts" class="attempts-card">
+  <mat-card-header>
+    <mat-card-title>Your Attempts ({{attempts.length}}/6)</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="attempts-container">
+      <div class="attempt-row" *ngFor="let attempt of attempts">
+        <div class="attempt-letter" *ngFor="let letter of attempt.letters" [ngClass]="letter.state">
+          {{letter.letter}}
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

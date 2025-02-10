@@ -1,0 +1,15 @@
+<mat-card class="suggestions-card">
+  <mat-card-header>
+    <mat-card-title>Possible Words</mat-card-title>
+    <mat-card-subtitle *ngIf="(suggestions$ | async)?.length as count">
+      {{count}} words found
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="suggestions-list">
+      <div *ngFor="let word of suggestions$ | async" class="suggestion-item">
+        {{word}}
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
