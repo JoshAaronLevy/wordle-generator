@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
@@ -42,17 +42,23 @@ export class AppComponent {
 
   constructor(private fb: FormBuilder) {
     this.wordForm = this.fb.group({
-      letter0: [''],
-      letter1: [''],
-      letter2: [''],
-      letter3: [''],
-      letter4: [''],
-      state0: ['absent'],
-      state1: ['absent'],
-      state2: ['absent'],
-      state3: ['absent'],
-      state4: ['absent']
+      letter0: ['', [Validators.required, Validators.pattern('[A-Za-z]')]],
+      letter1: ['', [Validators.required, Validators.pattern('[A-Za-z]')]],
+      letter2: ['', [Validators.required, Validators.pattern('[A-Za-z]')]],
+      letter3: ['', [Validators.required, Validators.pattern('[A-Za-z]')]],
+      letter4: ['', [Validators.required, Validators.pattern('[A-Za-z]')]],
+      state0: ['absent', Validators.required],
+      state1: ['absent', Validators.required],
+      state2: ['absent', Validators.required],
+      state3: ['absent', Validators.required],
+      state4: ['absent', Validators.required]
     });
+  }
+
+  get isFormValid(): boolean {
+    return this.wordForm.valid &&
+      Object.keys(this.wordForm.controls).every(key =>
+        this.wordForm.get(key)?.value !== '');
   }
 
   addAttempt() {
